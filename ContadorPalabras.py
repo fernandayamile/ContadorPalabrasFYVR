@@ -21,12 +21,24 @@ class ContadorPalabras(QtWidgets.QMainWindow):
         # Contar las palabras
         cantidadPalabras = len(textoSeparado)
         self.tvPalabras.setText(f"Palabras:{cantidadPalabras}")
+
         # Contar los caracteres   
         totalCaracteres = 0
         for palabra in textoSeparado:
             totalCaracteres += len(palabra)
         totalCaracteres
-        self.tvCaracteres.setText(f"Caracteres: {totalCaracteres}")    
+        self.tvCaracteres.setText(f"Caracteres: {totalCaracteres}")  
+
+        #LOGICA
+        if cantidadPalabras >= 20:
+            self.tvPalabras.setStyleSheet("color: #F54927")
+        else:
+            self.tvPalabras.setStyleSheet("color: #000000")
+
+        if totalCaracteres >= 120:
+            self.tvCaracteres.setStyleSheet("color: #F54930")
+        else:
+            self.tvCaracteres.setStyleSheet("color: #000000")
 
 
 app = QtWidgets.QApplication(sys.argv)        
